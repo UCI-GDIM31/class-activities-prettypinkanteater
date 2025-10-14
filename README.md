@@ -18,6 +18,18 @@ of the line.
 
 Create future Devlog sub-headers with the three # symbols, then write your Devlogs below them.
 
+### W3
+
+The input parameters would be the player sanity level as a float data type. There is no output/void return because there
+is no operated on and returned value.
+
+A class is a kitchen and the member variables inside of it are ingredients or tools present inside of the kitchen, the member methods 
+are the cooking techniques that are able to be used inside the kitchen based on the ingredients and tools. You can also borrow and
+use tools from another kitchen, or class. The resulting dish, or component functionality, is made from this kitchen. 
+
+I think that the balls get extremely bright in the Scene if they bounce too many times because the brightness is based
+off the amount of times bounced so as the amount of bounces increases, so does the brightness.
+
 ## Open-Source Assets
 
 ### W1
