@@ -33,12 +33,13 @@ off the amount of times bounced so as the amount of bounces increases, so does t
 ### W4
  Declaring a private boolean member variable called _isGrounded that has the value of true.
 
- If statement checking for 2 conditions, the member method, that checks if the space key is down, of the Input class and checking for member
- variable _isGrounded value.
+ If statement checking for 2 conditions, the member method (because it has parantheses) that 
+ has the argument of the space key, that checks if the space key is down, of the Input class 
+ and checking the value of the member variable _isGrounded value.
 
  Sets the boolean variable to false.
 
- Table # 16
+ Table # 16 :D
 ## Open-Source Assets
 
 ### W1
