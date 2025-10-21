@@ -40,6 +40,11 @@ off the amount of times bounced so as the amount of bounces increases, so does t
  Sets the boolean variable to false.
 
  Table # 16 :D
+
+ We added Rigidbodies to the cat and the soccer ball while having Is Trigger on for the goal. We did this because the cat and soccer ball were going to be physically impacted
+ by collision and the goal would have the ball pass through it, unlike the cat and ball, but also trigger a reaction. 
+One of the issues when I first tested my game was that my cat was floating. I fixed it by adjusting the size and placement of the capsule collider so that it did not create a 
+large space underneath the cat that would have it floating. 
 ## Open-Source Assets
 
 ### W1
