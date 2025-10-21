@@ -2,7 +2,7 @@
 
 ## Devlogs
 
-Hello World!
+Hello World! lalalalalalalal!!! i am sick :( that is not lala
 
 ### W1
 
@@ -30,6 +30,15 @@ use tools from another kitchen, or class. The resulting dish, or component funct
 I think that the balls get extremely bright in the Scene if they bounce too many times because the brightness is based
 off the amount of times bounced so as the amount of bounces increases, so does the brightness.
 
+### W4
+ Declaring a private boolean member variable called _isGrounded that has the value of true.
+
+ If statement checking for 2 conditions, the member method, that checks if the space key is down, of the Input class and checking for member
+ variable _isGrounded value.
+
+ Sets the boolean variable to false.
+
+ Table # 16
 ## Open-Source Assets
 
 ### W1
