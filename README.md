@@ -45,6 +45,10 @@ off the amount of times bounced so as the amount of bounces increases, so does t
  by collision and the goal would have the ball pass through it, unlike the cat and ball, but also trigger a reaction. 
 One of the issues when I first tested my game was that my cat was floating. I fixed it by adjusting the size and placement of the capsule collider so that it did not create a 
 large space underneath the cat that would have it floating. 
+
+### W5
+My question was on clarifying how references worked when it came to accessing methods from getting scripts or classes through GetComponent. The answer was that references store
+the script that is returned from GetComponent as a variable. When you use the variable storing it, you would have a . between it and the method being used just like a normal class.
 ## Open-Source Assets
 
 ### W1
