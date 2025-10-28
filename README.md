@@ -47,8 +47,14 @@ One of the issues when I first tested my game was that my cat was floating. I fi
 large space underneath the cat that would have it floating. 
 
 ### W5
-My question was on clarifying how references worked when it came to accessing methods from getting scripts or classes through GetComponent. The answer was that references store
+Activity 1: My question was on clarifying how references worked when it came to accessing methods from getting scripts or classes through GetComponent. The answer was that references store
 the script that is returned from GetComponent as a variable. When you use the variable storing it, you would have a . between it and the method being used just like a normal class.
+
+Activity 2: Make Monobehavior Class that will be connected to the Deer GameObject. There will be a SerializeField member variable that will represent the Transform component of the Deer by using 
+GetComponent<>. There will be another variable that will use a similar reference and GetComponent statement to get the NavMeshAgent component which will use the SetDestination() 
+method inside it The method would have Start() because we need it to happen when the game begins. We do not need to write our own methods we are mostly giving parameters to 
+preexisitng methods.
+
 ## Open-Source Assets
 
 ### W1
