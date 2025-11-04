@@ -55,6 +55,20 @@ GetComponent<>. There will be another variable that will use a similar reference
 method inside it The method would have Start() because we need it to happen when the game begins. We do not need to write our own methods we are mostly giving parameters to 
 preexisitng methods.
 
+### W6
+
+Class Resource Guide:
+Assigned to math, but I jumped around.
+[link](https://docs.google.com/document/d/1_FuPSWqTkXPrMthJ3fE3VoS7TKVECOjqZArYk2FPLWk/edit?usp=sharing)
+
+Pair Programming Plan:
+Add script component to all bat objects.
+Have a SerializeField float member variable for speed.
+Have a vector variable representing player position.
+Public methods that change value of enabled to false and true to get the bats to stop chasing the player.
+Will also need Update() method to continue chasing player when enabled is true that will use transform.position.
+
+
 ## Open-Source Assets
 
 ### W1
