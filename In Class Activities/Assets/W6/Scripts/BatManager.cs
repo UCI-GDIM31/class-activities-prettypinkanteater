@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,15 +12,15 @@ public class BatManager : MonoBehaviour
     [SerializeField] private TMP_Text _reactionUiPrefab;
     // STEP 1 -----------------------------------------------------------------
     // Add a member variable named "_bats" that's an array of BatW6 Components.
-    // In the Inspector, add ALL of the bats in the Scene.
-    [SerializeField] private GameObject[] _bats;
+    // In the Inspector, add ALL of the bats in the Scene
+    [SerializeField] private BatW6[] _bats;
     // STEP 1 -----------------------------------------------------------------
 
     // STEP 3 -----------------------------------------------------------------
     // Add a member variable named "_messages" that's an array of strings.
     // In the Inspector, add at least a few different messages for the bats to
     //      say when they reach the player.
-    
+    [SerializeField] private string[] _messages;
     // STEP 3 -----------------------------------------------------------------
 
     [SerializeField] private float[] _newTextTimers;
@@ -38,7 +39,7 @@ public class BatManager : MonoBehaviour
         // That means the bat at _bats[0] has a timer at _newTextTimers[0],
         //      the bat at _bats[1] has a timer at _newTextTimers[1],
         //      and so on.
-        // _newTextTimers = new [_bats.Length];
+        _newTextTimers = new float[_bats.Length];
         // STEP 6 -------------------------------------------------------------
     }
 
@@ -49,7 +50,10 @@ public class BatManager : MonoBehaviour
         // Loop through all of the entries in _newTextTimers, and increase each
         //      timer's value by the amount of time that passed this frame.
         
+        for(int i = 0; i < 2; i++)
+        {
 
+        }
         // STEP 7 -------------------------------------------------------------
 
         // STEP 2 -------------------------------------------------------------
@@ -63,7 +67,21 @@ public class BatManager : MonoBehaviour
         // You will need to check the Vector3 documentation to find a method
         //      to help you with that distance check :)
         // https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Vector3.html
-        //
+        for(int i = 0; i < _bats.Length; i++)
+        {
+            BatW6 bat = _bats[i];
+            if (Vector3.Distance(bat.transform.position, _playerTransform.position) <= _interactDistance)
+            {
+
+                bat.EnableChasing(_playerTransform);
+
+            }
+
+            else
+            {
+                bat.StopChasing();
+            }
+        }
         // STEP 4
         // Also inside this for loop, if the distance between the bat and the
         //      player is less than _overlapDistance, call CreateReactions()
@@ -84,7 +102,12 @@ public class BatManager : MonoBehaviour
         // https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Random.Range.html
         // If you use floats as the arguments, it will return a float.
         // If you use ints as the arugments, it will return an int.
-        //
+
+        int _randomIndex = UnityEngine.Random.Range(0, _messages.Length);
+        Debug.Log(_randomIndex);
+        string _indexMessage = _messages[_randomIndex];
+        SpawnReactionUI(bat, _indexMessage);
+
         // Use Random.Range() to pick a RANDOM INDEX in the _messages array
         //      and call SpawnReactionUI() with the string at that index.
         // This should choose a random message to spawn every time one of the
