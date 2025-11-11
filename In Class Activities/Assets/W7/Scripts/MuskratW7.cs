@@ -46,8 +46,8 @@ public class MuskratW7 : MonoBehaviour
         // You might want to look below Step 3 for an example :D
         
         float leftright = Input.GetAxis("Horizontal");
-        
-
+        Vector3 bubbleAxis = transform.TransformDirection(Vector3.up);
+        transform.RotateAround(transform.position, bubbleAxis, leftright * _moveSpeed * Time.deltaTime);
 
         // STEP 3 -------------------------------------------------------------
 
@@ -75,7 +75,7 @@ public class MuskratW7 : MonoBehaviour
     {
         // STEP 1 -------------------------------------------------------------
         // This movement code only runs when the Muskrat is on flat ground.
-        //
+
         // Use the input stored in leftright to rotate the Muskrat at
         //      _rotationSpeed speed.
         // Use the Transform.Rotate method: https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Transform.Rotate.html
@@ -87,6 +87,8 @@ public class MuskratW7 : MonoBehaviour
 
         float leftright = Input.GetAxis("Horizontal");
 
+        transform.Rotate(Vector3.up * leftright * _moveSpeed * Time.deltaTime);
+
         // STEP 1 -------------------------------------------------------------
 
 
@@ -96,8 +98,9 @@ public class MuskratW7 : MonoBehaviour
         // This line of code is incorrect. 
         // Replace it with a different line of code that uses 'movement' to
         //      move the Muskrat forwards and backwards.
-        transform.position += movement * Vector3.forward * _moveSpeed * Time.deltaTime;
-
+        // transform.position = movement * Vector3.forward * _moveSpeed * Time.deltaTime;
+        transform.Translate(Vector3.forward * movement * _moveSpeed * Time.deltaTime);
+        // translate method interprets arguments in object space :3
         // STEP 2 -------------------------------------------------------------
 
 
@@ -108,9 +111,14 @@ public class MuskratW7 : MonoBehaviour
         // You may also find the absolute value method, Mathf.Abs(), helpful:
         //      https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Mathf.Abs.html
 
+        if (_rigidbody.linearVelocity > Vector3.)
+        {
+            _animator.SetBool("flying", true);
+        }
+    }
+    // AUGHHHHH AOOOOUUGUHHH
         
         // STEP 4 -------------------------------------------------------------
-    }
 
     // ------------------------------------------------------------------------
     private void Jump()

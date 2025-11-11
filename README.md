@@ -68,6 +68,11 @@ Have a vector variable representing player position.
 Public methods that change value of enabled to false and true to get the bats to stop chasing the player.
 Will also need Update() method to continue chasing player when enabled is true that will use transform.position.
 
+### W7
+
+Doc: [link](https://docs.google.com/document/d/15Bf9iq4hlaq_e307D2wAsGnGOj82cBwZpf1YgvIXKqo/edit?usp=sharing)
+
+The problem with step 2 is that he is rotating around his object axes instead of the world space.
 
 ## Open-Source Assets
 
