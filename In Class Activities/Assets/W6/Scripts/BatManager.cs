@@ -50,9 +50,9 @@ public class BatManager : MonoBehaviour
         // Loop through all of the entries in _newTextTimers, and increase each
         //      timer's value by the amount of time that passed this frame.
         
-        for(int i = 0; i < 2; i++)
+        for (int i = 0; i < _newTextTimers.Length; i++)
         {
-
+            _newTextTimers[i] += Time.deltaTime;
         }
         // STEP 7 -------------------------------------------------------------
 
@@ -67,20 +67,24 @@ public class BatManager : MonoBehaviour
         // You will need to check the Vector3 documentation to find a method
         //      to help you with that distance check :)
         // https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Vector3.html
-        for(int i = 0; i < _bats.Length; i++)
+        for (int _bat = 0; _bat < _bats.Length; _bat++)
         {
-            BatW6 bat = _bats[i];
-            if (Vector3.Distance(bat.transform.position, _playerTransform.position) <= _interactDistance)
+            float _distance = Vector3.Distance(_playerTransform.position, _bats[_bat].transform.position);
+
+            if (_distance < _overlapDistance)
             {
-
-                bat.EnableChasing(_playerTransform);
-
+                CreateReactions(_bats[_bat]);
             }
 
+            else if (_distance < _interactDistance)
+            {
+                _bats[_bat].EnableChasing(_playerTransform);
+            }
             else
             {
-                bat.StopChasing();
+                _bats[_bat].StopChasing();
             }
+
         }
         // STEP 4
         // Also inside this for loop, if the distance between the bat and the
@@ -103,10 +107,12 @@ public class BatManager : MonoBehaviour
         // If you use floats as the arguments, it will return a float.
         // If you use ints as the arugments, it will return an int.
 
-        int _randomIndex = UnityEngine.Random.Range(0, _messages.Length);
+        int _randomIndex = UnityEngine.Random.Range(0, _messages.Length - 1);
+        string _message = _messages[_randomIndex];
+
+        SpawnReactionUI(bat, _message);
+
         Debug.Log(_randomIndex);
-        string _indexMessage = _messages[_randomIndex];
-        SpawnReactionUI(bat, _indexMessage);
 
         // Use Random.Range() to pick a RANDOM INDEX in the _messages array
         //      and call SpawnReactionUI() with the string at that index.
@@ -130,7 +136,7 @@ public class BatManager : MonoBehaviour
         // /* starts the comments, and */ ends it.
         // Simply uncomment the below lines by removing the /* and */ to finish.
 
-        /*
+        
         int index = System.Array.IndexOf(_bats, bat);
         
         GridLayoutGroup layout = bat.GetComponentInChildren<GridLayoutGroup>();
@@ -140,7 +146,7 @@ public class BatManager : MonoBehaviour
             TMP_Text textObj = Instantiate(_reactionUiPrefab, layout.transform);
             textObj.text = message;
         }
-        */
+        
 
         // STEP 8 -------------------------------------------------------------
     }

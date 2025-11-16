@@ -7,11 +7,9 @@ public class BatW6 : MonoBehaviour
     private Transform _playerTransform;
     [SerializeField] private GameObject _player;
 
-
     public void EnableChasing(Transform player)
     {
         enabled = true;
-        _playerTransform = _player.GetComponent<Transform>();
     }
    
 
@@ -22,6 +20,7 @@ public class BatW6 : MonoBehaviour
 
     public void Update()
     {
+        _playerTransform = _player.GetComponent<Transform>();
         transform.position = Vector3.MoveTowards(transform.position, _playerTransform.position, _speed * Time.deltaTime);
     }
 }
